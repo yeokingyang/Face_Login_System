@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link href="{%static 'css/bootstrap_login.min.css' %} " rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition Login</title>
+    
+    <style>
+        table, th, td {
+          border: 2px solid black;
+          border-collapse: collapse;
+        }
+        th {
+          background-color: #b3b3b3;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div align = "center">
+        <div style="display:flex; flex-wrap:wrap; flex-direction: row; justify-content: center; align-items: center">
+            <div style="width:1000px; border: solid 1px #333333; background-color:#ffffff;" align="center">
+                <div style="background-color:#333333; color:#ffffff; padding:3px;" align="center"><b>Admin Panel</b></div>
+                <div style="margin:20px">
+                    <table width="100%" style="background-color:#ffffff;">  
+                        <thead>  
+                            <tr>  
+                                <th>Username</th>
+                                <th>Actions</th>
+                            </tr>  
+                        </thead>  
+                        <tbody>  
+                            {% for userAccount in userAccounts %}  
+                                {% if userAccount.username != "admin" %}  
+                                <tr>  
+                                    <td>{{ userAccount.username }}</td>
+                                    <td>  
+                                        <center>
+                                            <!-- <a href="/update/{{ userAccount.id }}">Edit</a>   -->
+                                            <a href="/delete/{{ userAccount.id }}">Delete</a>  
+                                        </center>
+                                    </td>  
+                                </tr>  
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>  
+                    </table><br>
+                    <form action="../">
+                        <input type="submit" name="mainMenu" value=" Back to Main Menu " class="btn btn-irenic float-middle"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div style = "font-size:15px; color:#000000; margin-top:10px">Created by:</div>
+        <div style = "font-size:15px; color:#000000; margin-top:10px">201969990051 - Yeo King</div>
+        <div style = "font-size:15px; color:#000000; margin-top:10px">201969990300 - Ryo Khannazuki</div>
+        <div style = "font-size:15px; color:#000000; margin-top:10px">201969990102 - Reyvin Chanwelson</div>
+  </div>
+</body>
+</html>

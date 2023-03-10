@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link href="{%static 'css/bootstrap_login.min.css' %} " rel="stylesheet">
+    <script src="{%static 'js/bootstrap_login.min.js' %} "></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition Login</title>
+</head>
+
+<body>
+    <div class="tile">
+        <div class="tile-header">
+            <h2
+                style="color: white; opacity: .75; font-size: 2.5rem; display: flex; justify-content: center; align-items: center; height: 100%;">
+                REGISTRATION</h2>
+        </div>
+
+        <div class="tile-body">
+            <form id="form" method="POST" action="/register">
+                {% csrf_token %}  
+                <label class="form-input">
+                    <i class="material-icons">person</i>
+                    <input type="text"  name="username" 
+                    id="username" autofocus="true" required />
+                    <span class="label">Please Enter New Username</span>
+                    <span class="underline"></span>
+                </label>
+                
+                <label class="form-input">
+                    <i class="material-icons">lock</i>
+                    <input type="password" name="password"
+                     id="password" required/>
+                    <span class="label">Please Enter Password</span>
+                    <div class="underline"></div>
+                </label>
+
+                <div class="submit-container clearfix" style="margin-top: 2rem;">
+                    <div id="submit">
+                        <button type="submit" class="btn btn-irenic float-right" tabindex="0">Register</button>
+                    </div>
+
+                    <div class="login-pending">
+                        <div class=spinner>
+                            <span class="dot1"></span>
+                            <span class="dot2"></span>
+                        </div>
+
+                        <div class="login-granted-content">
+                            <i class="material-icons">done</i>
+                        </div>
+                    </div>
+                </div>
+                <p align="center"> Already have an account? <a href="/login" class="fw-bold text-body"><u>Login
+                            here</u></a></p>
+            </form>
+        </div>
+            <form action="../">
+                <input type="submit" name="cancel" value=" Back " class="btn btn-irenic float-right" />
+            </form>
+    </div>
+    
+</body>
+</html>
